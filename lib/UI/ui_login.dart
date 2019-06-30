@@ -12,7 +12,7 @@ import 'package:login_itmapp/model/login_API.dart';
 //Widget de estado del Login
 class Uilogin extends StatefulWidget {
   static bool menuSelected;
-  static String localhost = "10.62.18.42";
+  static String localhost = "192.168.0.10";
   // static bool themeSelected = true;
   static String usrname;
   @override

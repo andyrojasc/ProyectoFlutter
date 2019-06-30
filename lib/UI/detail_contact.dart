@@ -223,7 +223,7 @@ class DetailPage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => EditarContacto(contactName)));
             },
           ),

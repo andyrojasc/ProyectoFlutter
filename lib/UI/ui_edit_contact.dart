@@ -6,15 +6,25 @@ import 'package:login_itmapp/UI/ui_edit_contact.dart';
 import 'package:login_itmapp/dark_theme/theme.dart';
 //importacion del metodo de contactos
 import 'package:login_itmapp/model/contact.dart';
+import 'package:login_itmapp/model/edit_contact.dart';
+import 'package:login_itmapp/model/get_contacts.dart';
 //importacion del metodo de realizar llamada
 import 'package:login_itmapp/model/launch_call.dart';
 //importacion del metodo de enviar mensaje
 import 'package:login_itmapp/model/launch_message.dart';
 
+import 'detail_contact.dart';
+
 //Clase Detalle de contacto
 class EditarContacto extends StatelessWidget {
   //variable para obtener el nombre del contacto
   final Contact contactName;
+  final nombreController = TextEditingController();
+  final numeroController = TextEditingController();
+  final correoController = TextEditingController();
+  final areaController = TextEditingController();
+  final empresaController = TextEditingController();
+  final descripcionController = TextEditingController();
   //constructor del detalle de contacto
   EditarContacto(this.contactName);
   @override
@@ -24,51 +34,65 @@ class EditarContacto extends StatelessWidget {
       child: new Column(
         children: <Widget>[
           new ListTile(
-            leading: Padding(
-              padding: const EdgeInsets.only(top: 12.0),
-              child: new IconButton(
-                icon: Icon(
-                  Icons.phone,
-                  color: Color(0xFF29a0a8),
-                  size: 35.0,
-                ),
-                onPressed: () {
-                  launchcaller(contactName.numeroTelefono.toString());
-                },
-              ),
-            ),
+            // leading: Padding(
+            //   padding: const EdgeInsets.only(top: 12.0),
+            //   child: new IconButton(
+            //     icon: Icon(
+            //       Icons.phone,
+            //       color: Color(0xFF29a0a8),
+            //       size: 35.0,
+            //     ),
+            //     onPressed: () {
+            //       launchcaller(contactName.numeroTelefono.toString());
+            //     },
+            //   ),
+            // ),
             title: Padding(
               padding: const EdgeInsets.only(top: 14.0),
               child:
-              new Text(contactName.numeroTelefono.toString()),
-            ),
-            subtitle: new Text("Móvil"),
-            trailing: Padding(
-              padding: const EdgeInsets.only(top: 9.0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.message,
-                  color: Color(0xFF29a0a8),
-                  size: 35,
+              new TextFormField(
+                controller: numeroController,
+                decoration: InputDecoration(
+                  hintText: contactName.numeroTelefono.toString(),
+                  border: InputBorder.none,
                 ),
-                onPressed: () {
-                  launchMessage(contactName.numeroTelefono.toString());
-                },
               ),
             ),
+            subtitle: new Text("Móvil"),
+            // trailing: Padding(
+            //   padding: const EdgeInsets.only(top: 9.0),
+            //   child: IconButton(
+            //     icon: Icon(
+            //       Icons.message,
+            //       color: Color(0xFF29a0a8),
+            //       size: 35,
+            //     ),
+            //     onPressed: () {
+            //       launchMessage(contactName.numeroTelefono.toString());
+            //     },
+            //   ),
+            // ),
           ),
           new Divider(
             color: Color(0xFF29a0a8),
-            indent: 78,
+            
           ),
           new ListTile(
-            leading: new IconButton(
-              icon: Icon(Icons.email, color: Color(0xFF29a0a8), size: 35.0),
-              onPressed: () {
-                print("email");
-              },
-            ),
-            title: new Text(contactName.correo),
+            // leading: new IconButton(
+            //   icon: Icon(Icons.email, color: Color(0xFF29a0a8), size: 35.0),
+            //   onPressed: () {
+            //     print("email");
+            //   },
+            // ),
+            title: 
+            TextFormField(
+              controller: correoController,
+                decoration: InputDecoration(
+                  hintText: contactName.correo,
+                  border: InputBorder.none,
+                ),
+              ),
+            
             subtitle: new Text("Correo"),
           ),
           Stack(
@@ -103,13 +127,26 @@ class EditarContacto extends StatelessWidget {
                           child: Container(
                             child: Padding(
                               padding: const EdgeInsets.only(top: 4.0, left: 6.0),
-                              child: Text(
-                                contactName.area,
-                                style: TextStyle(
+                              child: 
+                               TextFormField(
+                                 controller: areaController,
+                                 style: TextStyle(
                                     color: Colors.black87, fontSize: 17.0),
                                 textAlign: TextAlign.start,
-                                textDirection: TextDirection.ltr,
-                              ),
+                                textDirection: TextDirection.ltr, 
+                decoration: InputDecoration(
+                  hintText: contactName.area,
+                  border: InputBorder.none,
+                  
+                ),
+              ),
+                              // Text(
+                              //   contactName.area,
+                              //   style: TextStyle(
+                              //       color: Colors.black87, fontSize: 17.0),
+                              //   textAlign: TextAlign.start,
+                              //   textDirection: TextDirection.ltr,
+                              // ),
                             ),
                           ),
                         ),
@@ -148,13 +185,20 @@ class EditarContacto extends StatelessWidget {
                             child: Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 4.0, left: 6.0),
-                                child: Text(
-                                  contactName.empresa,
-                                  style: TextStyle(
-                                      color: Colors.black87, fontSize: 17.0),
-                                  textAlign: TextAlign.start,
-                                  textDirection: TextDirection.ltr,
-                                ),
+                                child: 
+                                TextFormField(
+                                 controller: empresaController,
+                                 style: TextStyle(
+                                    color: Colors.black87, fontSize: 17.0),
+                                textAlign: TextAlign.start,
+                                textDirection: TextDirection.ltr, 
+                decoration: InputDecoration(
+                  hintText: contactName.empresa,
+                  border: InputBorder.none,
+                  
+                ),
+              ),
+                                
                               ),
                             ),
                           ),
@@ -194,13 +238,18 @@ class EditarContacto extends StatelessWidget {
                             child: Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 4.0, left: 6.0),
-                                child: Text(
-                                  contactName.descripcion,
-                                  style: TextStyle(
-                                      color: Colors.black87, fontSize: 17.0),
-                                  textAlign: TextAlign.start,
-                                  textDirection: TextDirection.ltr,
-                                ),
+                                child: TextFormField(
+                                 controller: descripcionController,
+                                 style: TextStyle(
+                                    color: Colors.black87, fontSize: 17.0),
+                                textAlign: TextAlign.start,
+                                textDirection: TextDirection.ltr, 
+                decoration: InputDecoration(
+                  hintText: contactName.descripcion,
+                  border: InputBorder.none,
+                  
+                ),
+              ),
                               ),
                             ),
                           ),
@@ -215,7 +264,17 @@ class EditarContacto extends StatelessWidget {
     );
     return new Scaffold(
       appBar: AppBar(
-        title: Text(contactName.nombreContacto),
+        title: TextFormField(
+          controller: nombreController,
+          style: TextStyle(color: Colors.white,fontSize: 20.0) ,
+decoration: InputDecoration(
+  hintText: contactName.nombreContacto,
+  hintStyle: TextStyle(color: Colors.white),
+  
+  border: InputBorder.none,
+),
+          
+          ),
         backgroundColor: drawerBackgroundColor,
         actions: <Widget>[
           IconButton(
@@ -225,6 +284,20 @@ class EditarContacto extends StatelessWidget {
             ),
             onPressed: () {
               print("Save");
+               editar(
+                              contactName,
+                              nombreController.value.text,
+                              numeroController.value.text,
+                              correoController.value.text,
+                              areaController.value.text,
+                              empresaController.value.text,
+                              descripcionController.value.text);
+                              contactName.nombreContacto = nombreController.value.text;
+                             Navigator.pushReplacement(
+                                    context,
+                                    new MaterialPageRoute(
+                                        builder: (context) =>
+                                            DetailPage(contactName)));
 //              Navigator.of(context).push(MaterialPageRoute(
 //                  builder: (context) => EditarContacto(contactName)));
             },
@@ -236,7 +309,46 @@ class EditarContacto extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(null),
         ),
       ),
-      body: card,
+      body: 
+      SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+         child: card,
+      )
+     
     );
   }
+}
+void editar(contactName, nombreController, numeroController,correoController,areaController,empresaController,descripcionController){
+  if(nombreController == ""){
+    nombreController = contactName.nombreContacto;
+  }
+  else if(numeroController== ""){
+numeroController = contactName.numeroTelefono;
+  }
+  else if(correoController ==""){
+correoController = contactName.correo;
+  }
+  else if (areaController ==""){
+areaController = contactName.area;
+  }
+  else if(empresaController ==""){
+    empresaController = contactName.empresa;
+
+  }
+  else if(descripcionController == ""){
+descripcionController = contactName.descripcion;
+  }
+
+if(nombreController != "" && correoController != "" && numeroController!="" && areaController !=""
+&& empresaController!="" && descripcionController != ""){
+ editarContacto(contactName.id,nombreController,correoController,numeroController,
+    areaController,empresaController,descripcionController);
+    
+}
+else{
+  editar(contactName, nombreController, numeroController,correoController,areaController,empresaController,descripcionController);
+
+}
+   
+                               
 }
