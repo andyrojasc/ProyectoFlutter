@@ -30,3 +30,18 @@ print("ID: "+ idContacto.toString());
 
   return data;
 }
+
+Future<Map<String, dynamic>> eliminarContacto(
+    idContacto) async {
+print("ID: "+ idContacto.toString());
+  String ip = Uilogin.localhost;
+  String id = idContacto.toString();
+  http.Response response = await http.get(
+      Uri.encodeFull(
+          "http://$ip/LaravelAPI/public/borrarContactos/$id"),
+      headers: {"Accept": "application/json"});
+  Map<String, dynamic> data = json.decode(response.body);
+  print(data["status"]);
+
+  return data;
+}

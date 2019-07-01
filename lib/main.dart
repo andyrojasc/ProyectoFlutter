@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:login_itmapp/UI/ui_login.dart';
 //Paquete tema dark de la app
 import 'package:login_itmapp/dark_theme/background.dart';
+import 'package:login_itmapp/date.dart';
 
 import 'UI/color_picker.dart';
 import 'bottom_dashboard/bottom_dashboard.dart';
@@ -16,6 +17,7 @@ void main() {
     //Propiedad de titulo del material app
     title: 'Login',
     //propiedad Home que ejecuta la clase principal
+   
      home: LoginPage(),
     // home: UI_Color(),
   ));

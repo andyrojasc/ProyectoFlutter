@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/widgets.dart';
 import 'package:login_itmapp/UI/color_picker.dart';
 import 'package:login_itmapp/UI/ui_load_contacts.dart';
+import 'package:login_itmapp/UI/ui_load_tasks.dart';
 import 'package:login_itmapp/UI/ui_register_user.dart';
 import 'package:login_itmapp/UI/ui_settings.dart';
 import 'package:login_itmapp/dark_theme/theme.dart';
@@ -22,7 +23,7 @@ static var colr = "dark";
 
 class _BottomNavBarState extends State<BottomNavBar> {
  
-Page1 one;
+Tasks one;
   Page2 two;
   Contacts three;
   UI_Settings five;
@@ -40,7 +41,7 @@ Page1 one;
   
   initState(){
     super.initState();
-      one = Page1('Page1');
+      one = Tasks();
     two = Page2('PAge2');
     three = Contacts();
     five = UI_Settings();

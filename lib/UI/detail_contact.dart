@@ -6,6 +6,7 @@ import 'package:login_itmapp/UI/ui_edit_contact.dart';
 import 'package:login_itmapp/dark_theme/theme.dart';
 //importacion del metodo de contactos
 import 'package:login_itmapp/model/contact.dart';
+import 'package:login_itmapp/model/edit_contact.dart';
 //importacion del metodo de realizar llamada
 import 'package:login_itmapp/model/launch_call.dart';
 //importacion del metodo de enviar mensaje
@@ -234,6 +235,8 @@ class DetailPage extends StatelessWidget {
             ),
             onPressed: () {
               print("delete");
+              eliminarContacto(contactName.id);
+              Navigator.of(context).pop(null);
             },
           ),
         ],
