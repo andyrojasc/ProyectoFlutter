@@ -42,7 +42,7 @@ class _TasksState extends State<Tasks> {
           child: Stack(
             children: <Widget>[
               Positioned(
-                left: !Uilogin.menuSelected ? 60 : 0,
+                left: !Uilogin.menuSelected ? 30 : 0,
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
@@ -70,6 +70,7 @@ class _TasksState extends State<Tasks> {
                         );
                       } else {
                         return ListView.builder(
+                          scrollDirection: Axis.vertical,
                           itemCount: snapshot.data.length,
                           itemBuilder: (BuildContext context, int id) {
                             return Padding(
@@ -151,10 +152,11 @@ class _TasksState extends State<Tasks> {
                                                ),
                                               
                                             ],
+                                            
                                           ),
                                           
                                  
-                                      width: 280.0,
+                                      width: !Uilogin.menuSelected ? 240 : 280.0,
                                         height: 100.0,
                                       ),
                                     )

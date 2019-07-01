@@ -24,7 +24,7 @@ static var colr = "dark";
 class _BottomNavBarState extends State<BottomNavBar> {
  
 Tasks one;
-  Page2 two;
+  // Page2 two;
   Contacts three;
   UI_Settings five;
   Ui_Register register;
@@ -42,17 +42,17 @@ Tasks one;
   initState(){
     super.initState();
       one = Tasks();
-    two = Page2('PAge2');
+    // two = Page2('PAge2');
     three = Contacts();
     five = UI_Settings();
     register = Ui_Register();
  colorTheme = UI_Settings.selectedColor;
 
-    pages = [one, two, three, register, five];
+    pages = [one, three, register, five];
     currentPage = one;
     listAppBarTitle = [
       "Bitacora",
-      "Recordatorios",
+      // "Recordatorios",
       "Contactos",
       "Agregar Ususario",
       "Configuración de Usuario"
@@ -83,7 +83,7 @@ Tasks one;
           height: 75.0,
           items: <Widget>[
             Icon(Icons.library_books, size: 30,color: _page == 0 ? colorIconSelec(BottomNavBar.colr) :  colorIconNoSelec(BottomNavBar.colr)),
-            Icon(Icons.alarm, size: 30,color: _page == 1 ? colorIconSelec(BottomNavBar.colr) :  colorIconNoSelec(BottomNavBar.colr)),
+            // Icon(Icons.alarm, size: 30,color: _page == 1 ? colorIconSelec(BottomNavBar.colr) :  colorIconNoSelec(BottomNavBar.colr)),
             Icon(Icons.contacts, size: 30,color: _page == 2 ? colorIconSelec(BottomNavBar.colr):  colorIconNoSelec(BottomNavBar.colr)),
             Icon(Icons.person_add, size: 30,color: _page == 3 ? colorIconSelec(BottomNavBar.colr):  colorIconNoSelec(BottomNavBar.colr)),
             Icon(Icons.settings, size: 30,color: _page == 4 ?colorIconSelec(BottomNavBar.colr) :  colorIconNoSelec(BottomNavBar.colr)),

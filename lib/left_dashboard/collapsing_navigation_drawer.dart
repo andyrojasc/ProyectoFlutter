@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:login_itmapp/UI/ui_load_contacts.dart';
+import 'package:login_itmapp/UI/ui_load_tasks.dart';
 import 'package:login_itmapp/UI/ui_register_user.dart';
 import 'package:login_itmapp/UI/ui_settings.dart';
 import 'package:login_itmapp/left_dashboard/collapsing_list_tile.dart';
 import 'package:login_itmapp/model/navigation_model.dart';
+import 'package:login_itmapp/model/task.dart';
 import 'package:login_itmapp/pageload.dart';
 import 'package:login_itmapp/dark_theme/theme.dart';
 
@@ -26,8 +28,8 @@ class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
   AnimationController _animationController;
   Animation<double> widthAnimation;
   int currentSelectedIndex = 0;
-  Page1 one;
-  Page2 two;
+  Tasks one;
+  // Page2 two;
   Contacts three;
   UI_Settings five;
   Ui_Register register;
@@ -43,17 +45,17 @@ class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     widthAnimation = Tween<double>(begin: minWidth, end: maxWidth)
         .animate(_animationController);
-    one = Page1('Page1');
-    two = Page2('PAge2');
+    one = Tasks();
+    // two = Page2('PAge2');
     three = Contacts();
     five = UI_Settings();
     register = Ui_Register();
 
-    pages = [one, two, three, register, five];
+    pages = [one, three, register, five];
     currentPage = one;
     listAppBarTitle = [
       "Bitacora",
-      "Recordatorios",
+      
       "Contactos",
       "Agregar Ususario",
       "Configuración de Usuario"
